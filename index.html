@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tiner Mobile Detailing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto+Slab:wght@700&display=swap');
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background-color: #111;
+    color: #f00;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    background-color: #222;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 3px solid #f00;
+  }
+  header h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 2px;
+    color: #f00;
+    text-shadow: 0 0 6px #ff0000cc;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px 50px 20px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    border-left: 6px solid #f00;
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+  .bio-box {
+    background: #1a1a1a;
+    border: 2px solid #f00;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #eee;
+    box-shadow: 0 0 8px #f00aa;
+  }
+  .pricing-box {
+    background: #1a1a1a;
+    border: 2px solid #f00;
+    border-radius: 10px;
+    padding: 25px 20px;
+    font-size: 1.3rem;
+    color: #f00;
+    text-align: center;
+    box-shadow: 0 0 12px #f00cc;
+  }
+  .price {
+    margin: 10px 0;
+    font-weight: 600;
+  }
+  .before-after {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .slot {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border: 3px solid #f00;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 0 15px #ff0000bb;
+  }
+  .slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .upload-btn {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.9);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 0;
+    cursor: pointer;
+    border-top: 2px solid #ff4444;
+    text-align: center;
+  }
+  .pair-title {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #f00;
+    text-shadow: 0 0 4px #ff0000cc;
+  }
+  .contact {
+    background: #1a1a1a;
+    border: 2px solid #f00;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 8px #f00aa;
+  }
+  .contact a {
+    color: #f00;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  #adminToggle {
+    text-align: center;
+    color: #f00;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
+  @media (max-width: 700px) {
+    .before-after {
+      flex-direction: column;
+      align-items: center;
+    }
+    .slot {
+      width: 90vw;
+      height: 90vw;
+      max-height: 320px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tiner Detailing</h1>
+</header>
+
+<main>
+  <section>
+    <h2>About Us</h2>
+    <div class="bio-box">
+      Tiner Detailing proudly serves the Muskogee to Cherokee County area, delivering high-quality interior and exterior car cleaning services. We take pride in transforming your vehicle to look and feel like new, all while you sit in the comfort of your home. Our commitment is to excellent service, attention to detail, and ensuring every customer is left happy.
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <div class="pricing-box">
+      <div class="price">$75 – Interior & Exterior</div>
+      <div class="price">$50 – Interior Only</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="pair-title">Before & After</div>
+    <div class="before-after">
+      <div class="slot">
+        <img id="before0" src="" alt="Before">
+        <input type="file" accept="image/*" class="upload-btn" onchange="uploadImage(event, 'before0')">
+      </div>
+      <div class="slot">
+        <img id="after0" src="" alt="After">
+        <input type="file" accept="image/*" class="upload-btn" onchange="uploadImage(event, 'after0')">
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <strong>Call or Text:</strong><br />
+    <a href="tel:9187727227">918-772-7227</a>
+  </section>
+
+  <div id="adminToggle" onclick="toggleAdmin()">Admin</div>
+</main>
+
+<script>
+  const adminCode = "detail2025";
+
+  function toggleAdmin() {
+    const code = prompt("Enter admin code:");
+    if (code === adminCode) {
+      document.querySelectorAll(".upload-btn").forEach(btn => btn.style.display = "block");
+    } else {
+      alert("Wrong code.");
+    }
+  }
+
+  function uploadImage(event, id) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.getElementById(id);
+      img.src = e.target.result;
+      localStorage.setItem(id, e.target.result);
+    }
+    reader.readAsDataURL(file);
+  }
+
+  window.onload = function() {
+    const ids = ["before0", "after0"];
+    ids.forEach(id => {
+      const stored = localStorage.getItem(id);
+      if (stored) {
+        document.getElementById(id).src = stored;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
